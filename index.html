@@ -31,22 +31,45 @@
             <ul class="links">
               <a href="#"><li>Home</li></a>
               <a href="#"><li>Features</li></a>
-              <a href="#"><li>Products</li></a>
-              <a href="#"><li>Reviews</li></a>
-              <a href="#"><li>Blogs</li></a>
-              <a href="#"><li>Contact Us</li></a>
+              <a href="men.html"><li>Men's Clothing</li></a>
+              <a href="#"><li>Women's Clothing</li></a>
+              <a href="#"><li>Jewelry</li></a>
+              <a href="#"><li>Electronics</li></a>
             </ul>
           </div>
           <div class="nav-right">
-            <div>
+            <div class="search-icon" onclick="toggleSearch()">
               <i class="fas fa-search" style="color: #41d917"></i>
+            </div>
+            <div class="search-box">
+              <input type="text" id="search-box" placeholder="Search for..." />
+              <label for="search-box" class="fas fa-search"></label>
             </div>
             <div class="cart-icon" onclick="toggleCart()">
               <i class="far fa-cart-plus" style="color: #41d917"></i>
               <span class="cart-count">0</span>
             </div>
             <div class="cart-card">
-              <!-- <p>This is working</p> -->
+              <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="images/watermelon.jpeg" alt="" />
+                <div class="content">
+                  <h3>Watermelon</h3>
+                  <span class="price">Price: $100</span>
+                  <span class="quantity">Quantity: 1</span>
+                </div>
+              </div>
+              <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="images/orange.jpg" alt="" />
+                <div class="content">
+                  <h3>Orange</h3>
+                  <span class="price">Price: $200</span>
+                  <span class="quantity">Quantity: 1</span>
+                </div>
+              </div>
+              <div class="total">Total : $19.69/-</div>
+              <a href="#" class="btn">checkout</a>
             </div>
             <div>
               <i class="far fa-user" style="color: #41d917"></i>
@@ -70,7 +93,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="section-2">
+    <section id="features" class="section-2">
       <div class="features">
         <h2>Our <span>Features</span></h2>
         <div class="features-content">
@@ -104,61 +127,13 @@
         </div>
       </div>
     </section>
-      <div class="products">
-        <h2>Our <span>Products</span></h2>
-        <div class="products-content">
-          <div class="product">
-            <img src="images/product 1.png" alt="product1" />
-            <h3>Product 1</h3>
-            <p>Price: $100</p>
-          </div>
-          <div class="product">
-            <img src="images/product 1.png" alt="product2" />
-            <h3>Product 2</h3>
-            <p>Price: $200</p>
-          </div>
-          <div class="product">
-            <img src="images/product 1.png" alt="product3" />
-            <h3>Product 3</h3>
-            <p>Price: $300</p>
-          </div>
-        </div>
-      <div class="products-content">
-        <div class="product">
-          <img src="images/product 1.png" alt="product1" />
-          <h3>Product 1</h3>
-          <p>Price: $100</p>
-        </div>
-        <div class="product">
-          <img src="images/product 1.png" alt="product2" />
-          <h3>Product 2</h3>
-          <p>Price: $200</p>
-        </div>
-        <div class="product">
-          <img src="images/product 1.png" alt="product3" />
-          <h3>Product 3</h3>
-          <p>Price: $300</p>
-        </div>
-      </div>
-      <div class="products-content">
-        <div class="product">
-          <img src="images/product 1.png" alt="product1" />
-          <h3>Product 1</h3>
-          <p>Price: $100</p>
-        </div>
-        <div class="product">
-          <img src="images/product 1.png" alt="product2" />
-          <h3>Product 2</h3>
-          <p>Price: $200</p>
-        </div>
-        <div class="product">
-          <img src="images/product 1.png" alt="product3" />
-          <h3>Product 3</h3>
-          <p>Price: $300</p>
-        </div>
-      </div>
-      </div>
-    <!-- <footer>
+    <div class="products">
+      <h2>Our <span>Products</span></h2>
+      <div class="products-content"></div>
+    </div>
+  </body>
+</html>
+<!-- <footer>
       <div class="footer">
         <div class="footer-left">
           <h3>Emart</h3>
@@ -190,5 +165,3 @@
       </div>
       <p>Copyright © 2023 Emart. All rights reserved.</p>
     </footer> -->
-  </body>
-</html>
