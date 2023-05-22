@@ -7,6 +7,7 @@
 body {
   background-color: var(--background);
 }
+
 :root {
   --background: #3b4249;
   --text: #ddd9d5;
@@ -28,6 +29,7 @@ section {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   transition: background-color 0.3s ease;
+  z-index: 9999;
 }
 .nav-bar.scrolled {
   background-color: rgb(13, 4, 52);
@@ -97,6 +99,8 @@ a {
   border-radius: 0.5rem;
   width: 35rem;
   background: #ffffff;
+  height: 400px;
+  overflow-y: scroll;
 }
 .cart-card .box {
   display: flex;
@@ -109,25 +113,29 @@ a {
   height: 10rem;
 }
 .cart-card .box .fa-trash {
-  font-size: 2rem;
+  font-size: 14px;
   position: absolute;
   top: 50%;
-  right: 2rem;
+  right: -80px;
   cursor: pointer;
-  color: lightgray;
   transform: translateY(-50%);
 }
 .cart-card .box .fa-trash:hover {
   color: #74ca1d;
 }
-.cart-card .box .content h3 {
+.cart-card .box .content h3{
   color: #1e1e1e;
-  font-size: 1.7rem;
-  padding-bottom: 1rem;
+  font-size: 14px;
+  width: 150px;
+}
+.cart-card .box .content img{
+  width: 100px;
+  height: 100px;
 }
 .cart-card .box .content span {
-  color: lightgray;
-  font-size: 1.6rem;
+  color: #1e1e1e;
+  font-size: 12px;
+  text-transform: capitalize;
 }
 .cart-card .box .content .quantity {
   padding-left: 1rem;
@@ -316,10 +324,6 @@ a {
   justify-content: center;
   align-items: center;
   background-color: var(--accent);
-  /* background-image: url(../images/support.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right; */
   padding: 20px;
   font-size: 16px;
   color: #74ca1d;
@@ -423,14 +427,14 @@ a {
   outline: none;
   text-transform: uppercase;
   letter-spacing: 0.1cm;
-  background-color: var(--secondarybutton)
+  background-color: var(--secondarybutton);
   color: var(--text);
   border-radius: 6px;
   width: 50%;
 }
-.product button:hover{
-    background-color: #74ca1d;
-    color: #000000;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+.product button:hover {
+  background-color: #74ca1d;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
