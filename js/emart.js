@@ -45,16 +45,98 @@ let cartCount = 0;
 let cartCountElement = document.querySelector('.cart-count');
 let cartItems = [];
 
-function addToCart(product) {
-  cartCount++;
-  cartCountElement.innerHTML = cartCount;
-
-  // Add the product to the cart items array
-  cartItems.push(product);
-
-  // Update the cart card with the added product
-  updateCartCard();
+// Retrieve cart count and items from local storage
+if (localStorage.getItem('cartCount')) {
+  cartCount = parseInt(localStorage.getItem('cartCount'));
 }
+
+if (localStorage.getItem('cartItems')) {
+  cartItems = JSON.parse(localStorage.getItem('cartItems'));
+}
+
+
+cartCountElement.innerHTML = cartCount;
+
+function addToCart(product) {
+    // Check if the product already exists in the cart
+    const existingItem = cartItems.find(item => item.id === product.id);
+  
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cartItems.push({
+        ...product,
+        quantity: 1
+      });
+    }
+  
+    cartCount++;
+    cartCountElement.innerHTML = cartCount;
+  
+    updateCartCard();
+  
+    // Save cart count and items to local storage
+    localStorage.setItem('cartCount', cartCount.toString());
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }
+  
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cartItems.splice(index, 1); // Remove the item from the cart items array
+    cartCount--; // Decrease the cart count
+    cartCountElement.innerHTML = cartCount; // Update the cart count element
+    updateCartCard(); // Update the cart card
+  
+    // Save cart count and items to local storage
+    localStorage.setItem('cartCount', cartCount.toString());
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }
+
+
+function updateCartCard() {
+    const cartCard = document.querySelector(".cart-card");
+    const cartContent = document.querySelector(".cart-card .content");
+  
+    // Clear existing items in the cart card
+    cartContent.innerHTML = "";
+  
+    // Iterate through the cart items and add them to the cart card
+    cartItems.forEach((item) => {
+      const cartItem = document.createElement("div");
+      cartItem.classList.add("box");
+  
+      const removeIcon = document.createElement("i");
+      removeIcon.classList.add("fas", "fa-trash");
+  
+      const itemImage = document.createElement("img");
+      itemImage.setAttribute("src", item.image);
+  
+      const itemContent = document.createElement("div");
+      itemContent.classList.add("content");
+  
+      const itemTitle = document.createElement("h3");
+      itemTitle.innerText = item.title;
+  
+      const itemPrice = document.createElement("span");
+      itemPrice.classList.add("price");
+      itemPrice.innerText = `Price: $${item.price}`;
+  
+      const itemQuantity = document.createElement("span");
+      itemQuantity.classList.add("quantity");
+      itemQuantity.innerText = `quantity: ${item.quantity}`;
+  
+      itemContent.append(itemTitle, itemPrice, itemQuantity);
+      cartItem.append(removeIcon, itemImage, itemContent);
+      cartContent.appendChild(cartItem);
+    });
+  }
+  
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-item')) {
+      const itemIndex = parseInt(event.target.dataset.index);
+      removeFromCart(itemIndex);
+    }
+  });
 
 // List all products
 
@@ -68,7 +150,7 @@ function createProductCard(product) {
     title_product.innerText = product.title;
 
     const category = document.createElement("p");
-    category.innerText = product.category;
+    category.innerText = `Category: ${product.category}`;
 
     const price = document.createElement("p");
     price.innerHTML = `Price: <span>$${product.price}</span>`;
@@ -128,48 +210,6 @@ function displayProduct(product) {
     products_container.innerHTML = "";
     products_container.appendChild(productContainer);
 }
-
-function updateCartCard(e) {
-    e.preventDefault();
-    const cartCard = document.querySelector(".cart-card");
-    const cartContent = document.querySelector(".cart-card .content");
-  
-    // Clear existing items in the cart card
-    cartContent.innerHTML = "";
-  
-    // Iterate through the cart items and add them to the cart card
-    cartItems.forEach((item) => {
-      const cartItem = document.createElement("div");
-      cartItem.classList.add("box");
-  
-      const removeIcon = document.createElement("i");
-      removeIcon.classList.add("fas", "fa-trash");
-  
-      const itemImage = document.createElement("img");
-      itemImage.setAttribute("src", item.image);
-  
-      const itemContent = document.createElement("div");
-      itemContent.classList.add("content");
-  
-      const itemTitle = document.createElement("h3");
-      itemTitle.innerText = item.title;
-  
-      const itemPrice = document.createElement("span");
-      itemPrice.classList.add("price");
-      itemPrice.innerText = `Price: $${item.price}`;
-  
-      const itemQuantity = document.createElement("span");
-      itemQuantity.classList.add("quantity");
-      itemQuantity.innerText = "Quantity: 1";
-  
-      itemContent.append(itemTitle, itemPrice, itemQuantity);
-      cartItem.append(removeIcon, itemImage, itemContent);
-      cartContent.appendChild(cartItem);
-    });
-  }
-  
-  
-
 
 
 
