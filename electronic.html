@@ -21,62 +21,57 @@
     <script src="js/electronic.js" defer></script>
   </head>
   <body>
-    <section>
-    <div>
-      <nav class="nav-bar">
-        <div class="logo">
-          <h1><span class="logo-e">E</span>mart</h1>
-        </div>
-        <div class="nav-center">
-          <ul class="links">
-            <a href="index.html"><li>Home</li></a>
-            <a href="#"><li>Features</li></a>
-            <a href="men.html"><li>Men's Clothing</li></a>
-            <a href="women.html"><li>Women's Clothing</li></a>
-            <a href="jewelry.html"><li>Jewelry</li></a>
-            <a href="electronic.html"><li>Electronics</li></a>
-          </ul>
-        </div>
-        <div class="nav-right">
-          <div class="search-icon" onclick="toggleSearch()">
-            <i class="fas fa-search" style="color: #41d917"></i>
+    <section class="section-1">
+      <div>
+        <nav class="nav-bar">
+          <div class="logo">
+            <h1><span class="logo-e">E</span>mart</h1>
           </div>
-          <div class="search-box">
-            <input type="text" id="search-box" placeholder="Search for..." />
-            <label for="search-box" class="fas fa-search"></label>
+          <div class="nav-center">
+            <ul class="links">
+              <a href="index.html"><li>Home</li></a>
+              <a href="#features"><li>Features</li></a>
+              <a href="men.html"><li>Men's Clothing</li></a>
+              <a href="women.html"><li>Women's Clothing</li></a>
+              <a href="jewelry.html"><li>Jewelry</li></a>
+              <a href="electronic.html"><li>Electronics</li></a>
+            </ul>
           </div>
-          <div class="cart-icon" onclick="toggleCart()">
-            <i class="far fa-cart-plus" style="color: #41d917"></i>
-            <span class="cart-count">0</span>
-          </div>
-          <div class="cart-card">
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="images/watermelon.jpeg" alt="" />
-              <div class="content">
-                <h3>Watermelon</h3>
-                <span class="price">Price: $100</span>
-                <span class="quantity">Quantity: 1</span>
-              </div>
+          <div class="nav-right">
+            <div class="search-icon" onclick="toggleSearch()">
+              <i class="fas fa-search" style="color: #41d917"></i>
             </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="images/orange.jpg" alt="" />
-              <div class="content">
-                <h3>Orange</h3>
-                <span class="price">Price: $200</span>
-                <span class="quantity">Quantity: 1</span>
-              </div>
+            <div class="search-box">
+              <input type="text" id="search-box" placeholder="Search for..." />
+              <label for="search-box" class="fas fa-search"></label>
             </div>
-            <div class="total">Total : $19.69/-</div>
-            <a href="#" class="btn">checkout</a>
+            <div class="cart-icon" onclick="toggleCart()">
+              <i class="far fa-cart-plus" style="color: #41d917"></i>
+              <span class="cart-count">0</span>
+            </div>
+            <div class="cart-card">
+              <h3
+                style="
+                  color: #41d917;
+                  text-align: center;
+                  font-size: 16px;
+                  border-bottom: 1px solid #000000;
+                "
+              >
+                Emart's Shopping Cart
+              </h3>
+              <div class="box">
+                <div class="content"></div>
+              </div>
+              <div class="total"></div>
+              <a href="#" class="btn">checkout</a>
+            </div>
+            <div class="tester">
+              <i class="far fa-user" id="user-1" style="color: #41d917"></i>
+            </div>
           </div>
-          <div>
-            <i class="far fa-user" style="color: #41d917"></i>
-          </div>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
     <div class="products" style="padding-top: 40px;">
       <h2>Electronics</span></h2>
       <div class="products-content"></div>

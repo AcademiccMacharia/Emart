@@ -13,19 +13,18 @@ function createProductCard(product) {
     const price = document.createElement("p");
     price.innerHTML = `Price: <span>$${product.price}</span>`;
 
-    const button = document.createElement("button")
-    button.innerText = "Add to cart"
+    const description = document.createElement("p");
+    description.innerText = product.description;
 
-    // button.addEventListener("click", () => {
-    //     addToCart(product)
-    // })
+    const button = document.createElement("button")
+    button.innerText = "Add to cart";
 
     const product_card = document.createElement("div");
     product_card.classList.add("product");
 
 
 
-    product_card.append(img, title_product, category, price, button);
+    product_card.append(img, title_product, category, price, description, button);
 
     return product_card
 }

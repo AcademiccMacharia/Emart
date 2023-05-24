@@ -13,6 +13,9 @@ function createProductCard(product) {
     const price = document.createElement("p");
     price.innerHTML = `Price: <span>$${product.price}</span>`;
 
+    const description = document.createElement("p");
+    description.innerText = product.description;
+
     const button = document.createElement("button")
     button.innerText = "Add to cart"
 
@@ -25,7 +28,7 @@ function createProductCard(product) {
 
 
 
-    product_card.append(img, title_product, category, price, button);
+    product_card.append(img, title_product, category, price, description, button);
 
     return product_card
 }
